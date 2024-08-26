@@ -44,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',  // email_verified_at 使用的是 datetime 时间类型
     ];
+
+    // 生成头像
+    public function gravatar($size = '100')
+    {
+        //$hash = md5(strtolower(trim($this->attributes['email'])));
+        //return "https://cdn.v2ex.com/gravatar/$hash?s=$size";
+        return "http://junwind.top/wp-content/uploads/2024/08/me.jpg";
+    }
+
+
 }
