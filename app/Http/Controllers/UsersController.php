@@ -20,6 +20,18 @@ class UsersController extends Controller
         return view('users.show', compact('user'));
     }
 
+    // 执行用户注册逻辑
+    public function store(Request $request) {
+        $this->validate($request, [
+            'name' => 'required|unique:users|max:50', // required必传参|在users表中唯一|长度最大为50
+            'email' => 'required|email|unique:users|max:255', // email邮箱验证
+            'password' => 'required|confirmed|min:6' // confirmed密码匹配验证
+        ]);
+        return;
+    }
+
+
+
 
 
 }
