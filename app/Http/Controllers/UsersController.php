@@ -10,7 +10,7 @@ use App\Models\User;
 
 class UsersController extends Controller
 {
-    // 创建用户页面
+    // 用户注册页面
     public function create() {
         return view('users.create');
     }
