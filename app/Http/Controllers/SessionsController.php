@@ -32,7 +32,9 @@ class SessionsController extends Controller
 
     // 退出登录逻辑
     public function destroy() {
-        return 'do logout';
+        Auth::logout();
+        session()->flash('success', '您已成功退出');
+        return redirect('login');
     }
 
 
