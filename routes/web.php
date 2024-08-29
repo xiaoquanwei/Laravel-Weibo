@@ -11,7 +11,7 @@ Route::get('/help', 'StaticPagesController@help')->name('help');  // 在路由�
 Route::get('/about', 'StaticPagesController@about')->name('about');
 
 // 注册功能的路由（下面的resource中已经包含用户注册页面的路由了，这里的可以不要）
-//Route::get('signup', 'UsersController@create')->name('signup');
+Route::get('signup', 'UsersController@create')->name('signup');
 
 // 用户资源路由，restful
 Route::resource('users', 'UsersController');
@@ -31,3 +31,8 @@ Route::resource('users', 'UsersController');
 4、更新页get，更新动作patch
 5、删除动作delete
 */
+
+// 用户登录，登录处理，登录退出路由相关
+Route::get('login', 'SessionsController@create')->name('login');  // 登录页面
+Route::post('login', 'SessionsController@store')->name('login');  // 处理登录逻辑
+Route::delete('logout', 'SessionsController@destroy')->name('logout'); // 退出登录
